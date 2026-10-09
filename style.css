@@ -1,0 +1,257 @@
+:root {
+  --yellow: #f3c65a;
+  --cream: #f6ecb8;
+  --green: #0f6e47;
+  --leaf: #7bbf7d;
+  --paper: #fbf7e4;
+  --ink: #12382a;
+  --muted: #5d7a6c;
+  --radius: 22px;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: ui-rounded, -apple-system, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--leaf);
+  outline-offset: 2px;
+}
+
+.screen {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: calc(env(safe-area-inset-top) + 20px) 16px calc(env(safe-area-inset-bottom) + 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.title {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.tile {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--yellow);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.tile-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.tile-meta {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.back {
+  align-self: flex-start;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.weeks {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 0 -16px;
+  padding: 0 16px 4px;
+  scrollbar-width: none;
+}
+
+.weeks::-webkit-scrollbar {
+  display: none;
+}
+
+.week {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--cream);
+  border-radius: 14px;
+  background: var(--paper);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.week.passed {
+  background: var(--cream);
+  color: var(--muted);
+}
+
+.week.current {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--paper);
+}
+
+.plan {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.plan-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.week-name {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.week-total {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.sets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.set {
+  background: var(--paper);
+  border-radius: 14px;
+  padding: 10px 0 8px;
+  text-align: center;
+}
+
+.set-reps {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.set-label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.primary,
+.secondary {
+  height: 60px;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.primary {
+  border: none;
+  background: var(--green);
+  color: var(--paper);
+}
+
+.primary:disabled {
+  background: var(--cream);
+  color: var(--muted);
+}
+
+.secondary {
+  border: 2px solid var(--leaf);
+  background: transparent;
+  color: var(--green);
+}
+
+.log h2 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.log li {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cream);
+}
+
+.log .result {
+  font-weight: 700;
+  color: var(--green);
+}
+
+.log .result.repeat {
+  color: var(--muted);
+}
+
+.empty {
+  color: var(--muted);
+}
